@@ -19,6 +19,16 @@ conda install -n base conda-libmamba-solver
 conda config --set experimental_solver libmamba
 conda install habitat-sim withbullet -c conda-forge -c aihabitat
 ```
+
+不出意外这时进入python import habitat和import habitat_sim会报错，缺少libEGL.so.1和libOpenGL.so.0文件
+这个文件的路径如下，下面构造符号链接来实现添加文件
+
+‘‘‘
+export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/libGL.so.1:$LD_LIBRARY_PATH
+sudo ln -s /usr/lib/x86_64-linux-gnu/libGL.so.1 /usr/lib/libEGL.so.1
+sudo apt install libopengl0 -y
+sudo apt-get install --reinstall libegl1-mesa
+’’’
 ### 下载habitat-lab
 ```
 git clone --branch stable https://github.com/facebookresearch/habitat-lab.git
