@@ -49,4 +49,12 @@ git lfs install
 python -m habitat_sim.utils.datasets_download --uids habitat_test_scenes --data-path data/
 python -m habitat_sim.utils.datasets_download --uids habitat_example_objects --data-path data/
 ```
+### 下面就没必要做窗口测试，打开notebook教程即可
+首先为notebook添加habitat内核
+python examples/viewer.py --scene data/scene_datasets/habitat-test-scenes/skokloster-castle.glb
+```
+conda install ipython
+conda install ipykernel
+python -m ipykernel install --user --name habitat --display-name "habitat"
+```
 
