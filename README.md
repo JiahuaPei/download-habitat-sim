@@ -13,8 +13,11 @@ habitat-lab是高级api的集合，比如任务成功的判定等等
 
 ## 下面按照正常流程安装habitat-sim
 ```
+cd /
 git clone https://github.com/facebookresearch/habitat-sim.git
 conda create -n habitat python=3.9 cmake=3.14.0
+#restart the shell
+#source /etc/network_turbo
 conda activate habitat
 conda install -n base conda-libmamba-solver
 conda config --set experimental_solver libmamba
@@ -27,6 +30,7 @@ conda install habitat-sim withbullet -c conda-forge -c aihabitat
 ```
 export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/libGL.so.1:$LD_LIBRARY_PATH
 sudo ln -s /usr/lib/x86_64-linux-gnu/libGL.so.1 /usr/lib/libEGL.so.1
+sudo apt-get update
 sudo apt install libopengl0 -y
 sudo apt-get install --reinstall libegl1-mesa
 ```
@@ -56,5 +60,14 @@ python examples/viewer.py --scene data/scene_datasets/habitat-test-scenes/skoklo
 conda install ipython
 conda install ipykernel
 python -m ipykernel install --user --name habitat --display-name "habitat"
+```
+
+## 使用VNC远程桌面，按照教程
+此外：
+```
+rm -rf /tmp/.X1*  # 如果再次启动，删除上一次的临时文件，否则无法正常启动
+USER=root /opt/TurboVNC/bin/vncserver :1 -desktop X -auth /root/.Xauthority -geometry 1920x1080 -depth 24 -rfbwait 120000 -rfbauth /root/.vnc/passwd -fp /usr/share/fonts/X11/misc/,/usr/share/fonts -rfbport 6006
+startxfce4
+export DISPLAY=:1
 ```
 
