@@ -55,7 +55,6 @@ python -m habitat_sim.utils.datasets_download --uids habitat_example_objects --d
 ```
 ### 下面就没必要做窗口测试，打开notebook教程即可
 首先为notebook添加habitat内核
-python examples/viewer.py --scene data/scene_datasets/habitat-test-scenes/skokloster-castle.glb
 ```
 conda install ipython
 conda install ipykernel
@@ -67,7 +66,9 @@ python -m ipykernel install --user --name habitat --display-name "habitat"
 ```
 rm -rf /tmp/.X1*  # 如果再次启动，删除上一次的临时文件，否则无法正常启动
 USER=root /opt/TurboVNC/bin/vncserver :1 -desktop X -auth /root/.Xauthority -geometry 1920x1080 -depth 24 -rfbwait 120000 -rfbauth /root/.vnc/passwd -fp /usr/share/fonts/X11/misc/,/usr/share/fonts -rfbport 6006
-startxfce4
 export DISPLAY=:1
+startxfce4
+#在vnc中测试图形化（暂时失败）
+python examples/viewer.py --scene data/scene_datasets/habitat-test-scenes/skokloster-castle.glb
 ```
 
