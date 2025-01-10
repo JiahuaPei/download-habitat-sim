@@ -20,6 +20,7 @@ conda init
 #restart the shell
 
 conda activate habitat
+source /etc/network_turbo
 conda install -n base conda-libmamba-solver
 conda config --set experimental_solver libmamba
 conda install habitat-sim withbullet -c conda-forge -c aihabitat
