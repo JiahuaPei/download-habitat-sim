@@ -16,6 +16,7 @@ habitat-lab是高级api的集合，比如任务成功的判定等等
 source /etc/network_turbo
 git clone https://github.com/facebookresearch/habitat-sim.git
 conda create -n habitat python=3.9 cmake=3.14.0
+conda init
 #restart the shell
 
 conda activate habitat
