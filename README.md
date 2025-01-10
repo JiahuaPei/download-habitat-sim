@@ -13,11 +13,11 @@ habitat-lab是高级api的集合，比如任务成功的判定等等
 
 ## 下面按照正常流程安装habitat-sim
 ```
-cd /
+source /etc/network_turbo
 git clone https://github.com/facebookresearch/habitat-sim.git
 conda create -n habitat python=3.9 cmake=3.14.0
 #restart the shell
-#source /etc/network_turbo
+
 conda activate habitat
 conda install -n base conda-libmamba-solver
 conda config --set experimental_solver libmamba
